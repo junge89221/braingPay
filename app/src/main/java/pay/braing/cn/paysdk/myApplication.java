@@ -2,8 +2,8 @@ package pay.braing.cn.paysdk;
 
 import android.app.Application;
 
-import cn.braing.pay.lib.util.Data;
-import cn.braing.pay.lib.util.Utils;
+import cn.braing.pay.lib.PaySdk;
+
 
 /**
  * <pre>
@@ -17,7 +17,6 @@ public class myApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Utils.init(this);
-        Data.init(this);
+        PaySdk.initSDK(this);
     }
 }

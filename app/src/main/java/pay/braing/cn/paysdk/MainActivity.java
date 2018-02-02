@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import cn.braing.pay.lib.PaySdk;
 import cn.braing.pay.lib.page.TestActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
             case R.id.test:
-                startActivity(new Intent(this,TestActivity.class));
+                PaySdk.Alipay(this);
                 break;
         }
     }
