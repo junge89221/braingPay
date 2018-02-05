@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PaySdk</string>
+    <string name="braingsdk_init_amcode">初始化：BraingSdk.init(amCode)</string>
 </resources>

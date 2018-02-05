@@ -93,32 +93,10 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, OrderDetailActivity.class));
         } else if (v.getId() == R.id.button6) {
             startActivity(new Intent(this, LoginActivity.class));
-          /*  CommApi.instance().FastPay(new FastPayReq())
-                    .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
-                        @Override
-                        protected void onError(ApiException ex) {
 
-                        }
-
-                        @Override
-                        public void onNext(ApiResp value) {
-
-                        }
-                    });*/
         } else if (v.getId() == R.id.button7) {
             startActivity(new Intent(this, RegisterActivity.class));
-           /* CommApi.instance().FastPay(new FastPayReq())
-                    .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
-                        @Override
-                        protected void onError(ApiException ex) {
 
-                        }
-
-                        @Override
-                        public void onNext(ApiResp value) {
-
-                        }
-                    });*/
         }
 
     }

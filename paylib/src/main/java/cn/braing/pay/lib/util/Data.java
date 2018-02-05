@@ -16,11 +16,17 @@ import cn.braing.pay.lib.db.UserManager;
 public class Data {
 
 
+    public static String getSecretKey() {
+        return secretKey;
+    }
 
+    private static String secretKey;
 
+    public static String getAmCode() {
+        return amCode;
+    }
 
-
-
+    private static String amCode;
 
     public static void setUser(User mUser) {
         Data.User = mUser;
@@ -53,9 +59,11 @@ public class Data {
      *
      * @param context 上下文
      */
-    public static void init(Context context) {
+    public static void init(Context context,String amCode,String secretKey) {
          User = UserManager.getInstance(context).getUser();
         isLogin = (User != null);
+        Data.amCode = amCode;
+        Data.secretKey = secretKey;
     }
 
     public static void exitAccount(Context context) {

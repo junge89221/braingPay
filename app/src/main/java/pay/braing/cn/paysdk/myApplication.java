@@ -1,9 +1,6 @@
 package pay.braing.cn.paysdk;
 
-import android.app.Application;
-
-import cn.braing.pay.lib.PaySdk;
-
+import android.support.multidex.MultiDexApplication;
 
 /**
  * <pre>
@@ -13,10 +10,10 @@ import cn.braing.pay.lib.PaySdk;
  * <pre>
  */
 
-public class myApplication extends Application {
+public class myApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        PaySdk.initSDK(this);
+//        BraingSdk.initSDK(this);
     }
 }

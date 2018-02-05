@@ -17,6 +17,7 @@ import cn.braing.pay.lib.bean.ReqMessageHead;
 import cn.braing.pay.lib.bean.SendMessageReq;
 import cn.braing.pay.lib.bean.ServerLogEvent;
 import cn.braing.pay.lib.bean.WxH5PayReq;
+import cn.braing.pay.lib.util.Data;
 import cn.braing.pay.lib.util.DateUtil;
 import cn.braing.pay.lib.util.MD5Util;
 import io.reactivex.Observable;
@@ -27,7 +28,7 @@ import io.reactivex.Observable;
 public class CommApi extends HttpApi<CommApiService> {
 
     private static CommApi api = null;
-    private String TEST_ID = "bf78fa1048e8420a87381fcde3c74136";
+    private String TEST_ID = Data.getSecretKey();
 
     @Override
     public Class<CommApiService> initService() {
@@ -93,7 +94,7 @@ public class CommApi extends HttpApi<CommApiService> {
 
     private CommRequest getReqBean(String method, Object bean) {
         ReqMessageHead reqMessageHead = new ReqMessageHead();
-        reqMessageHead.setAmCode("100000000250045");
+        reqMessageHead.setAmCode(Data.getAmCode());
         String lsh = UUID.randomUUID().toString();
         reqMessageHead.setLsh(lsh);
         reqMessageHead.setOpFlag(method);
