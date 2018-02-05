@@ -16,6 +16,18 @@ import cn.braing.pay.lib.db.UserManager;
 public class Data {
 
 
+    public static String getIp() {
+        return ip;
+    }
+
+    private static String ip;
+
+    public static String getBackUrl() {
+        return backUrl;
+    }
+
+    private static String backUrl;
+
     public static String getSecretKey() {
         return secretKey;
     }
@@ -59,11 +71,13 @@ public class Data {
      *
      * @param context 上下文
      */
-    public static void init(Context context,String amCode,String secretKey) {
+    public static void init(Context context,String amCode,String secretKey,String backUrl,String ip) {
          User = UserManager.getInstance(context).getUser();
         isLogin = (User != null);
         Data.amCode = amCode;
         Data.secretKey = secretKey;
+        Data.backUrl = backUrl;
+        Data.ip = ip;
     }
 
     public static void exitAccount(Context context) {

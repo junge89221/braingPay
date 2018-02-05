@@ -33,8 +33,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation project(':paylib')
-//    compile(name:'paylib', ext:'aar')
-    compile 'com.android.support:multidex:1.0.2'
+     compile 'com.android.support:multidex:1.0.2'
+//    compile 'com.github.junge89221:braingPay:-SNAPSHOT'
 }
 repositories{
     flatDir{

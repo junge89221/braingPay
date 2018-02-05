@@ -1,12 +1,13 @@
 package cn.braing.pay.lib.page;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import org.greenrobot.eventbus.EventBus;
 
 import cn.braing.pay.lib.R;
 import cn.braing.pay.lib.api.CommApi;
@@ -14,7 +15,6 @@ import cn.braing.pay.lib.api.exception.ApiException;
 import cn.braing.pay.lib.api.subscriber.SimpleSubscriber;
 import cn.braing.pay.lib.bean.ApiResp;
 import cn.braing.pay.lib.bean.RegisterReq;
-import cn.braing.pay.lib.bean.ServerLogEvent;
 
 public class RegisterActivity extends BaseActivity implements View.OnClickListener {
 
@@ -41,34 +41,36 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     /**
      * 提交
      */
-    private Button mCommit;
-    private TextView mResult;
-    private TextView mReqData;
-    private TextView mRespData;
+    private TextView mCommit;
+    private ImageView mMineLoginClose;
+    private LinearLayout mToLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_register);
         initView();
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
     }
+
     private void initView() {
         mEdit1 = (EditText) findViewById(R.id.edit1);
         mEdit2 = (EditText) findViewById(R.id.edit2);
         mEdit3 = (EditText) findViewById(R.id.edit3);
         mEdit4 = (EditText) findViewById(R.id.edit4);
         mEdit5 = (EditText) findViewById(R.id.edit5);
-        mCommit = (Button) findViewById(R.id.commit);
+        mCommit = (TextView) findViewById(R.id.login_commit);
         mCommit.setOnClickListener(this);
-        mResult = (TextView) findViewById(R.id.result);
-        mReqData = (TextView) findViewById(R.id.reqData);
-        mRespData = (TextView) findViewById(R.id.respData);
+
+        mMineLoginClose = (ImageView) findViewById(R.id.mine_login_close);
+        mToLogin = (LinearLayout) findViewById(R.id.to_login);
+        mToLogin.setOnClickListener(this);
+        mMineLoginClose.setOnClickListener(this);
     }
 
     @Override
@@ -81,23 +83,20 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                         @Override
                         protected void onError(ApiException ex) {
 
-                            mResult.setText(ex.getMsg() + ex.getErrorCode());
                         }
 
                         @Override
                         public void onNext(ApiResp value) {
-                            mResult.setText(value.toString());
+
                         }
                     });
+        }else if (i == R.id.to_login) {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }else if (i == R.id.mine_login_close) {
+            finish();
         }
     }
 
-    @Override
-    public void setServerData(ServerLogEvent serverData) {
-        if(serverData.isReq){
-            mReqData.setText("请求数据:"+serverData.data);
-        }else {
-            mRespData.setText("返回数据:"+serverData.data);
-        }
-    }
+
 }

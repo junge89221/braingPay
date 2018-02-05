@@ -14,6 +14,6 @@ public class myApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-//        BraingSdk.initSDK(this);
+ //        BraingSdk.initSDK(this);
     }
 }

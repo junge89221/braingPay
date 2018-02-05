@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#DEDEDE</color>
+    <color name="colorAccent">#3C6DF8</color>
+    <color name="ColorEEEE">#EEEEEE</color>
+    <color name="ColorFF00">#FF0000</color>
+    <color name="Color8044">#B33C6DF8</color>
+    <color name="ColorDFDF">#DFDFDF</color>
+    <color name="ColorF6A6">#F6A623</color>
+    <color name="Color80F6">#B3F6A623</color>
+    <color name="ColorC9C9">#C9C9C9</color>
+    <color name="Color9C9C">#9C9C9C</color>
+    <color name="Color9B9B">#9B9B9B</color>
+    <color name="ColorFFA4">#FFA432</color>
+
+    <color name="text_primary">#232323</color>
+    <color name="text_accent">#F77EA1</color>
+    <color name="text_secondary">#5d5d5d</color>
+    <color name="text_thirdly">#888888</color>
+    <color name="ColorF5F5">#F5F5F5</color>
+    <color name="ColorC4C4">#C4C4C4</color>
+    <color name="ColorFAFA">#FAFAFA</color>
+    <color name="Color5151">#515151</color>
+
+    <!--zxing-->
+    <color name="cc">#59a9ff</color>
+    <color name="bg_color">#EDEDED</color>
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="help_button_view">#ffcccccc</color>
+    <color name="help_view">#ff404040</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="result_image_border">#ffffffff</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c000ff00</color>
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="sbc_header_text">#ff808080</color>
+    <color name="sbc_header_view">#ffffffff</color>
+    <color name="sbc_list_item">#fffff0e0</color>
+    <color name="sbc_layout_view">#ffffffff</color>
+    <color name="sbc_page_number_text">#ff000000</color>
+    <color name="sbc_snippet_text">#ff4b4b4b</color>
+    <color name="share_text">#ff000000</color>
+    <color name="share_view">#ffffffff</color>
+    <color name="status_view">#50000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="viewfinder_frame">#ff000000</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="header">#58567D</color>
+    <color name="grgray">#686868</color>
+    <!--zxing end-->
+
+    <color name="ColorDFE4">#DFE4E6</color>
+    <color name="Color4A4A">#4A4A4A</color>
+    <color name="Color0303">#030303</color>
+    <color name="Color0076">#0076FF</color>
+    <color name="ColorFFFF">#ffffff</color>
+    <color name="ColorCCCC">#cccccc</color>
+    <color name="ColorFF66">#FF6666 </color>
+    <color name="Color3333">#333333 </color>
+    <color name="Color9999">#999999 </color>
+    <color name="Color6666">#666666 </color>
+    <color name="Color00A5">#00A5FF</color>
+    <color name="Color2A2A">#2A2A2A</color>
+    <color name="Color7979">#797979</color>
+    <color name="Color133C">#133c6df8</color>
+    <color name="Color1300">#13000000</color>
+    <color name="default_shadow_color">#88757575</color>
+    <color name="default_fill_color">#ffffff</color>
+
+    <color name="bg_left_progress">#E9415D</color>
+    <color name="bg_right_progress">#4A90E2</color>
+    <color name="Color3C3C">#3c3c3c</color>
+    <color name="Color6C6C">#6c6c6c</color>
+    <color name="ColorE6E6">#e6e6e6</color>
+    <color name="ColorA0A0">#a0a0a0</color>
+    <color name="ColorA063">#A06300</color>
+    <color name="Color0000">#000000</color>
+    <color name="Color701A1A">#b31A1A1A</color>
+    <color name="Color3C6D">#3C6DF8</color>
+
+    <color name="Color1A1A">#1A1A1A</color>
+    <color name="ColorF6F6">#F6F6F6</color>
+
+    <color name="Color3A3A">#3A3A3A</color>
+    <!-- 图片处于选中状态时的遮罩层颜色 -->
+    <color name="image_selected_color">#4D000000</color>
+
+    <color name="Color6A6A">#6a6a6a</color>
+    <color name="ColorF2F2">#f2f2f2</color>
+    <color name="ColorB1B1">#b1b1b1</color>
+
+
+    <color name="bar_grey">#393a3e</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="colorD9D9">#D9D9D9</color>
+    <color name="blue">#7D7DFF</color>
+    <color name="color_69">#999999</color>
+    <color name="image_overlay_true">#80000000</color>
+    <color name="image_overlay_false">#20000000</color>
+    <color name="line_color">#EEEEEE</color>
+    <color name="color_fa">#FAFAFA</color>
+    <color name="tab_color_true">#FA632D</color>
+    <color name="tab_color_false">#9b9b9b</color>
+    <color name="color_f2">#F2F2F2</color>
+
+    <color name="transparent_white">#F0FFFFFF</color>
+    <color name="transparent_db">#E0DBDBDB</color>
+    <color name="color_53">#53575e</color>
+    <color name="color_f0">#F0F0F0</color>
+    <color name="bar_grey_90">#dd393a3e</color>
+    <color name="color_4d">#4d4d4d</color>
+    <color name="color_orange">#E0FF6100</color>
+    <color name="ColorFFAF">#FFAF57</color>
+    <color name="ColorD612">#D61200</color>
+    <color name="Color44DB">#44db5e</color>
+    <color name="ColorD8D8">#D8D8D8</color>
+    <color name="AppBg">#F6F6F6</color>
+
+    <!--home color begin-->
+    <color name="red">#FFFF0000</color>
+     <color name="green">#FF00FF00</color>
+    <color name="Color6673">#66737F</color>
+    <color name="Color2C2C">#2C2C2C</color>
+    <color name="ColorAAB4">#AAB4BE</color>
+    <color name="Color0078">#0078FA</color>
+     <color name="Color808B">#808B96</color>
+    <color name="Color6C79">#6C7985</color>
+    <color name="ColorC7C7">#C7C7CD</color>
+    <color name="Color8787">#878787</color>
+    <color name="Color2E2E">#2E2E2E</color>
+     <color name="ColorEFEF">#EFEFEF</color>
+    <color name="ColorBABA">#bababa</color>
+     <color name="Color1515">#151515</color>
+    <!--home color end-->
+
+    <!--community color begin-->
+    <color name="Color8080">#808080</color>
+     <color name="ColorDADA">#dadada</color>
+    <color name="Color4990">#4990e2</color>
+    <color name="ColorFAFE">#fafeff</color>
+    <color name="ColorF2F6">#f2f6f8</color>
+    <color name="ColorB344DB">#B344db5e</color>
+    <color name="Color44b028">#44b028</color>
+    <color name="ColorFFED">#ffedcf</color>
+    <color name="ColorE941">#E9415D</color>
+    <color name="ColorF9F9">#F9F9F9</color>
+    <color name="Color9A9A">#9a9a9a</color>
+    <color name="Color4A90">#4A90E2</color>
+    <color name="Color4A90_A66">#664A90E2</color>
+    <color name="ColorE941_A66">#66E9415D</color>
+    <color name="ColorE0E0">#e0e0e0</color>
+     <color name="Color24DECA">#24DECA</color>
+    <color name="ColorFF5078">#FF5078</color>
+    <color name="ColorFF7200">#FF7200</color>
+    <color name="Color35343D">#35343D</color>
+    <color name="ColorF7F7FB">#F7F7FB</color>
+    <color name="spring_indicator_color">#3C6DF8</color>
+    <!--community color end-->
+
+    <!--mall color begin-->
+    <color name="Color9292">#929292</color>
+    <color name="ColorD2D2">#D2D2D2</color>
+     <color name="gray">#606060</color>
+    <color name="Color9797">#979797</color>
+    <color name="bg">#FFFFFF</color>
+    <color name="ColorF3F3">#F3F3F3</color>
+    <color name="ColorFF14">#99FF1400</color>
+    <!--mall color end-->
+
+    <!--mine color begin-->
+    <color name="Color80F0">#B3FF0000</color>
+     <color name="Color44DB_HALF">#B344DB5E</color>
+    <color name="ColorD4D9">#D4D9DF</color>
+    <color name="nodeColor">#AAB4BE</color>
+    <color name="nodeTextColor">#3C6DF8</color>
+    <color name="Transparent">#00000000</color>
+    <color name="house_drawing_room">#fddca7</color>
+    <color name="Color803C">#B33C6DF8</color>
+    <!--mine color end-->
+
+    <!--smarthome color begin-->
+    <color name="smarthome_bg">#F7F7FB</color>
+    <color name="translucence">#700B0B0B</color>
+     <color name="Color6266">#6266F9</color>
+    <color name="ColorFA41">#FA4169</color>
+    <color name="Color36C6">#36C679</color>
+    <color name="ColorFF50">#FF5078</color>
+    <color name="Color4148">#414852</color>
+    <color name="ColorD1D1">#D1D1D1</color>
+    <color name="ColorF7F7">#F7F7FB</color>
+     <color name="ColorDEDE">#DEDEDE</color>
+    <color name="ColorFF9F">#FF9F00</color>
+
+    <color name="praise_item_default">#333333</color>
+    <color name="praise_item_selector_default">#FFCCCCCC</color>
+    <color name="default_clickable_color">#FFCCCCCC</color>
+     <!--smarthome color end-->
+</resources>

@@ -28,6 +28,28 @@
         android:hint="商户秘钥"
          android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/edit3"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/editshape"
+        android:hint="回调地址"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/edit4"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/editshape"
+        android:hint="ip地址"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <Button
         android:id="@+id/button0"
         android:layout_width="wrap_content"
@@ -38,27 +60,10 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="微信请求 "
+        android:text="订单支付 "
         />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="支付宝请求"
-        />
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="发送验证码"
-        />
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="快捷支付"
-        />
+
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"

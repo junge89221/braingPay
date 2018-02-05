@@ -99,7 +99,7 @@ public class CommApi extends HttpApi<CommApiService> {
         reqMessageHead.setLsh(lsh);
         reqMessageHead.setOpFlag(method);
         reqMessageHead.setReqTime(DateUtil.getStringNow());
-        reqMessageHead.setClientIp("192.168.0.56");
+        reqMessageHead.setClientIp(Data.getIp());
         reqMessageHead.setSign(MD5Util.encodeMD5(lsh + TEST_ID));
         EventBus.getDefault().post(new ServerLogEvent(true, new Gson().toJson(new CommRequest(reqMessageHead, bean))));
         return new CommRequest(reqMessageHead, bean);

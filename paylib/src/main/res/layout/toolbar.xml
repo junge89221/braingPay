@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:src="@mipmap/activity_back"
+        android:id="@+id/toolbar_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@drawable/click_ripple_selector"/>
+
+    <TextView
+        android:id="@+id/toolbar_center"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:textColor="#000000" />
+
+    <cn.braing.pay.lib.view.DrawableCenterTextView
+        android:id="@+id/toolbar_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/hor_line"
+        android:layout_alignParentBottom="true"
+        android:background="#D2D2D2"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp" />
+</RelativeLayout>

@@ -1,18 +1,12 @@
 package pay.braing.cn.paysdk;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import cn.braing.pay.lib.BraingSdk;
-import cn.braing.pay.lib.bean.ServerLogEvent;
-import cn.braing.pay.lib.page.AliPayH5Activity;
 import cn.braing.pay.lib.page.BaseActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -22,18 +16,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * 微信请求
      */
     private Button mButton;
-    /**
-     * 支付宝请求
-     */
-    private Button mButton2;
-    /**
-     * 发送验证码
-     */
-    private Button mButton3;
-    /**
-     * 快捷支付
-     */
-    private Button mButton4;
     /**
      * 订单查询
      */
@@ -59,11 +41,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private boolean isInit =false;
     private EditText mEdit2;
+    private EditText mEdit3;
+    private EditText mEdit4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         initView();
 
     }
@@ -71,12 +56,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void initView() {
         mButton = (Button) findViewById(R.id.button);
         mButton.setOnClickListener(this);
-        mButton2 = (Button) findViewById(R.id.button2);
-        mButton2.setOnClickListener(this);
-        mButton3 = (Button) findViewById(R.id.button3);
-        mButton3.setOnClickListener(this);
-        mButton4 = (Button) findViewById(R.id.button4);
-        mButton4.setOnClickListener(this);
+
         mButton5 = (Button) findViewById(R.id.button5);
         mButton5.setOnClickListener(this);
         mButton6 = (Button) findViewById(R.id.button6);
@@ -86,6 +66,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mText = (TextView) findViewById(R.id.text);
         mEdit1 = (EditText) findViewById(R.id.edit1);
         mEdit2 = (EditText) findViewById(R.id.edit2);
+        mEdit3 = (EditText) findViewById(R.id.edit3);
+        mEdit4 = (EditText) findViewById(R.id.edit4);
         mButton0 = (Button) findViewById(R.id.button0);
         mButton0.setOnClickListener(this);
     }
@@ -96,35 +78,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             default:
                 break;
             case R.id.button:
-                BraingSdk.WeChatPay(this);
-                break;
-            case R.id.button2:
-                BraingSdk.Alipay(this);
-                break;
-            case R.id.button3:
-                BraingSdk.SendMessage(this);
-                break;
-            case R.id.button4:
-                BraingSdk.FastPay(this);
-                break;
+                BraingSdk.Payment(this, "456dsadasdas44",500,"测试订单");
+                 break;
             case R.id.button5:
-                BraingSdk.QueryOrder(this);
+                BraingSdk.QueryOrder(this, "312312");
                 break;
             case R.id.button6:
-                BraingSdk.Login(this);
+                BraingSdk.Login(this );
                 break;
             case R.id.button7:
-                BraingSdk.Register(this);
+                BraingSdk.Register(this );
                 break;
             case R.id.button0:
-                if (!verifyEditText(mEdit1, mEdit2)) return;
-                BraingSdk.initSDK(this,getEditText(mEdit1),getEditText(mEdit2));
+//                BraingSdk.initSDK(this,"231231","4423423","baidu.com","666");
+                if (!verifyEditText(mEdit1, mEdit2,mEdit3,mEdit4)) return;
+                BraingSdk.initSDK(this,getEditText(mEdit1),getEditText(mEdit2),getEditText(mEdit3),getEditText(mEdit4));
                  break;
         }
     }
 
-    @Override
-    public void setServerData(ServerLogEvent serverData) {
 
-    }
 }

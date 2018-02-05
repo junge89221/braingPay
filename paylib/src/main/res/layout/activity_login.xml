@@ -1,59 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:shadow="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/ColorF5F5"
+                android:orientation="vertical">
+    <ImageView
+        android:id="@+id/mine_login_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/btn_sign_close"
+        android:textColor="@color/Color0078" />
+
+<RelativeLayout
+    android:layout_centerInParent="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="cn.braing.pay.lib.page.WxH5Activity">
-    <EditText
-        android:id="@+id/edit1"
-        android:layout_marginTop="5dp"
-        android:padding="5dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/editshape"
-        android:hint="登录账号"
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/edit2"
-        android:layout_marginTop="5dp"
-        android:padding="5dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/editshape"
-        android:hint="登录密码"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-
-
-    <Button
-        android:id="@+id/commit"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="10dp"
-        android:text="提交"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/title_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="19dp"
+         android:text="登录"
+        android:textColor="@color/Color3333"
+        android:textSize="33sp" />
 
     <TextView
+        android:id="@+id/welcome_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_name"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="10dp"
+        android:text="欢迎来到braing"
+        android:textColor="@color/Color6666"
+        android:textSize="17sp" />
+
+    <LinearLayout
+        android:id="@+id/login_ll"
+        android:layout_width="match_parent"
+        android:layout_height="109dp"
+        android:layout_below="@id/welcome_content"
+        android:layout_marginRight="19dp"
+        android:layout_marginLeft="19dp"
         android:layout_marginTop="30dp"
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/reqData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:background="@color/ColorFFFF"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/respData"
+        <EditText
+            android:id="@+id/edit1"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@null"
+            android:hint="账号"
+            android:inputType="text"
+             android:paddingLeft="18dp"
+            android:textColorHint="@color/Color9999"
+            android:textSize="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginLeft="18dp"
+            android:background="@color/ColorF5F5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edit2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="密码"
+                android:inputType="text"
+                 android:paddingLeft="18dp"
+                android:textColorHint="@color/Color9999"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/login_commit_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_ll"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginLeft="19dp"
+        shadow:z_depth="z_depth4"
+        shadow:z_depth_shape="rect">
+
+        <TextView
+            android:id="@+id/login_commit"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="@color/ColorFFFF"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="登录"
+            android:textColor="@color/verification_sel"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/to_register"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_commit_shadow"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/agree_protocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="没有账号？"
+            android:textColor="@color/Color9999"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/protocol_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册"
+            android:textColor="@color/Color3C6D"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+
+</RelativeLayout>

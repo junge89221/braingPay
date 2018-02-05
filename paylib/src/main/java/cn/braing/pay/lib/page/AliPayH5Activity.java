@@ -45,15 +45,13 @@ public class AliPayH5Activity extends BaseActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
-        setContentView(R.layout.activity_ali_pay_h5);
+         setContentView(R.layout.activity_ali_pay_h5);
         initView();
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
-    }
+     }
     private void initView() {
         mEdit1 = (EditText) findViewById(R.id.edit1);
         mEdit2 = (EditText) findViewById(R.id.edit2);
@@ -85,12 +83,5 @@ public class AliPayH5Activity extends BaseActivity implements View.OnClickListen
         }
     }
 
-    @Override
-    public void setServerData(ServerLogEvent serverData) {
-    if(serverData.isReq){
-        mReqData.setText("请求数据:"+serverData.data);
-    }else {
-        mRespData.setText("返回数据:"+serverData.data);
-    }
-    }
+
 }
