@@ -75,22 +75,22 @@ public class PaymentActivity extends BraBaseActivity implements View.OnClickList
         int i = v.getId();
         if (i == R.id.wxH5Pay) {
 
-            startActivity(new Intent(PaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,"http://wxpay.wxutil.com/mch/pay/h5.v2.php").putExtra(Html5Activity.TITLE,"微信支付"));
+//            startActivity(new Intent(PaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,"http://wxpay.wxutil.com/mch/pay/h5.v2.php").putExtra(Html5Activity.TITLE,"微信支付"));
 
-//            CommApi.instance().WxH5Pay(new WxH5PayReq(OrderMoney, Data.getBackUrl(), OrderMark, OrderNo, "14"))
-//                    .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
-//                        @Override
-//                        protected void onError(ApiException ex) {
-//                            Toast.makeText(PaymentActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
-//                        }
-//
-//                        @Override
-//                        public void onNext(ApiResp value) {
-//                            if(!TextUtils.isEmpty(value.getMweb_url()))
-//                            startActivity(new Intent(PaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,value.getMweb_url()).putExtra(Html5Activity.TITLE,"微信支付"));
-//
-//                        }
-//                    });
+            CommApi.instance().WxH5Pay(new WxH5PayReq(OrderMoney, Data.getBackUrl(), OrderMark, OrderNo, "14"))
+                    .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
+                        @Override
+                        protected void onError(ApiException ex) {
+                            Toast.makeText(PaymentActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onNext(ApiResp value) {
+                            if(!TextUtils.isEmpty(value.getMweb_url()))
+                            startActivity(new Intent(PaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,value.getMweb_url()).putExtra(Html5Activity.TITLE,"微信支付"));
+
+                        }
+                    });
         } else if (i == R.id.AliH5Pay) {
             CommApi.instance().AliH5Pay(new AlipayReq(OrderMoney, Data.getBackUrl(), OrderMark, OrderNo, "12", "12"))
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
