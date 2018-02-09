@@ -316,7 +316,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:text="支持H5二维码扫码支付"
+                    android:text="支持微信扫码支付"
                     android:textColor="@color/Color8787"
                     android:textSize="12sp"/>
             </LinearLayout>

@@ -33,7 +33,7 @@ import cn.braing.pay.lib.view.DrawableCenterTextView;
  * <pre>
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BraBaseActivity extends AppCompatActivity {
     private RelativeLayout mToolbar;
     protected ImageView mTbLeftView;
     private TextView mTbCenterView;
@@ -91,7 +91,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
+    public void setTitleName(String titleName) {
+        mTbCenterView.setText(titleName);
+    }
 
 
-
+    @Override
+    protected void onDestroy() {
+        AppManager.getAppManager().finishActivity(this);
+        super.onDestroy();
+    }
 }

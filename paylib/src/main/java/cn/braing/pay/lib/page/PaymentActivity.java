@@ -2,9 +2,11 @@ package cn.braing.pay.lib.page;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import cn.braing.pay.lib.R;
 import cn.braing.pay.lib.api.CommApi;
@@ -13,10 +15,13 @@ import cn.braing.pay.lib.api.subscriber.SimpleSubscriber;
 import cn.braing.pay.lib.bean.AlipayReq;
 import cn.braing.pay.lib.bean.ApiResp;
 import cn.braing.pay.lib.bean.WxH5PayReq;
+import cn.braing.pay.lib.util.AppManager;
 import cn.braing.pay.lib.util.Data;
 import cn.braing.pay.lib.util.MoneyUtils;
+import cn.braing.pay.lib.view.ZxingDialog;
+import cn.braing.pay.lib.view.webview.Html5Activity;
 
-public class PaymentActivity extends BaseActivity implements View.OnClickListener {
+public class PaymentActivity extends BraBaseActivity implements View.OnClickListener {
 
     /**
      * 订单编号
@@ -69,27 +74,36 @@ public class PaymentActivity extends BaseActivity implements View.OnClickListene
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.wxH5Pay) {
-            CommApi.instance().WxH5Pay(new WxH5PayReq(OrderMoney, Data.getBackUrl(), OrderMark, OrderNo, "14"))
-                    .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
-                        @Override
-                        protected void onError(ApiException ex) {
-                        }
 
-                        @Override
-                        public void onNext(ApiResp value) {
+            startActivity(new Intent(PaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,"http://wxpay.wxutil.com/mch/pay/h5.v2.php").putExtra(Html5Activity.TITLE,"微信支付"));
 
-                        }
-                    });
+//            CommApi.instance().WxH5Pay(new WxH5PayReq(OrderMoney, Data.getBackUrl(), OrderMark, OrderNo, "14"))
+//                    .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
+//                        @Override
+//                        protected void onError(ApiException ex) {
+//                            Toast.makeText(PaymentActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
+//                        }
+//
+//                        @Override
+//                        public void onNext(ApiResp value) {
+//                            if(!TextUtils.isEmpty(value.getMweb_url()))
+//                            startActivity(new Intent(PaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,value.getMweb_url()).putExtra(Html5Activity.TITLE,"微信支付"));
+//
+//                        }
+//                    });
         } else if (i == R.id.AliH5Pay) {
             CommApi.instance().AliH5Pay(new AlipayReq(OrderMoney, Data.getBackUrl(), OrderMark, OrderNo, "12", "12"))
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {
+                            Toast.makeText(PaymentActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void onNext(ApiResp value) {
-
+                            if(!TextUtils.isEmpty(value.getQrcodeurl()))
+                                startActivity(new Intent(PaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,value.getQrcodeurl()).putExtra(Html5Activity.TITLE,"支付宝支付"));
+//                            new ZxingDialog(AppManager.getAppManager().getTopActivity(),value.getQrcodeurl(),"支付宝扫码支付").show();
                         }
                     });
         } else if (i == R.id.yinlianPay) {
@@ -99,15 +113,18 @@ public class PaymentActivity extends BaseActivity implements View.OnClickListene
             intent.putExtra("orderMark",OrderMark);
             startActivity(intent);
         } else if (i == R.id.wxScanPay) {
+//            new ZxingDialog(AppManager.getAppManager().getTopActivity(),"www.baidu.com").show();
             CommApi.instance().AliH5Pay(new AlipayReq(OrderMoney, Data.getBackUrl(), OrderMark, OrderNo, "13", "13"))
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {
+                            Toast.makeText(PaymentActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void onNext(ApiResp value) {
-
+                            if(!TextUtils.isEmpty(value.getQrcodeurl()))
+                            new ZxingDialog(AppManager.getAppManager().getTopActivity(),value.getQrcodeurl(),"微信扫码支付").show();
                         }
                     });
 

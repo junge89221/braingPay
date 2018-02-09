@@ -72,7 +72,7 @@
                 android:layout_height="54dp"
                  android:background="@null"
                 android:hint="密码"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:paddingLeft="18dp"
                 android:textColorHint="@color/Color9999"
                 android:textSize="15dp" />
@@ -150,7 +150,7 @@
                 android:background="@color/ColorFFFF"
                 android:enabled="false"
                 android:gravity="center"
-                android:text="登录"
+                android:text="注册"
                 android:textColor="@color/verification_sel"
                 android:textSize="17sp" />
         </RelativeLayout>

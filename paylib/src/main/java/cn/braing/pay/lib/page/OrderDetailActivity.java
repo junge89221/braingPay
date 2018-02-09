@@ -1,7 +1,6 @@
 package cn.braing.pay.lib.page;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import cn.braing.pay.lib.R;
@@ -11,7 +10,7 @@ import cn.braing.pay.lib.api.subscriber.SimpleSubscriber;
 import cn.braing.pay.lib.bean.ApiResp;
 import cn.braing.pay.lib.bean.OrderDetailReq;
 
-public class OrderDetailActivity extends BaseActivity   {
+public class OrderDetailActivity extends BraBaseActivity {
 
 
     /**
@@ -46,14 +45,12 @@ public class OrderDetailActivity extends BaseActivity   {
     }
 
     private void initData() {
-
         CommApi.instance().queryOrder(new OrderDetailReq(OrderNo))
                 .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                     @Override
                     protected void onError(ApiException ex) {
 
                     }
-
                     @Override
                     public void onNext(ApiResp value) {
                         if(value!=null){
@@ -71,7 +68,7 @@ public class OrderDetailActivity extends BaseActivity   {
                             }else {
                                 mOrderPayType.setText("其他");
                             }
-                            mOrderPayresult.setText(value.getRspmsg()  );
+                            mOrderPayresult.setText(value.getRespmsg()  );
                         }
 
                     }

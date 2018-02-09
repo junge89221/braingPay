@@ -6,17 +6,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.greenrobot.eventbus.EventBus;
-
 import cn.braing.pay.lib.R;
 import cn.braing.pay.lib.api.CommApi;
 import cn.braing.pay.lib.api.exception.ApiException;
 import cn.braing.pay.lib.api.subscriber.SimpleSubscriber;
 import cn.braing.pay.lib.bean.AlipayReq;
 import cn.braing.pay.lib.bean.ApiResp;
-import cn.braing.pay.lib.bean.ServerLogEvent;
 
-public class AliPayH5Activity extends BaseActivity implements View.OnClickListener {
+public class AliPayH5Activity extends BraBaseActivity implements View.OnClickListener {
 
     /**
      * 金额（分）

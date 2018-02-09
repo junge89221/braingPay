@@ -20,7 +20,7 @@ import cn.braing.pay.lib.api.subscriber.SimpleSubscriber;
 import cn.braing.pay.lib.bean.ApiResp;
 import cn.braing.pay.lib.bean.LoginReq;
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener, TextWatcher {
+public class LoginActivity extends BraBaseActivity implements View.OnClickListener, TextWatcher {
 
     /**
      * 登录账号
@@ -68,13 +68,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.commit) {
+        if (i == R.id.login_commit) {
             if (!verifyEditText(mEdit1, mEdit2)) return;
             CommApi.instance().login(new LoginReq(getEditText(mEdit1), getEditText(mEdit2)))
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {
-
+                            Toast.makeText(LoginActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
@@ -105,6 +105,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void afterTextChanged(Editable editable) {
-        mCommit.setEnabled(!TextUtils.isEmpty(getEditText(mEdit1)) && !TextUtils.isEmpty(getEditText(mEdit1)));
+        mCommit.setEnabled(!TextUtils.isEmpty(getEditText(mEdit1)) && !TextUtils.isEmpty(getEditText(mEdit2)));
     }
 }

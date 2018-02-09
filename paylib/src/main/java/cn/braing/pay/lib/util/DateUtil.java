@@ -44,7 +44,7 @@ public class DateUtil {
      * 时间日期格式化到年月日.
      */
     public static final String dateFormatYMD = "yyyy-MM-dd";
-    public static final String dateFormatYMDTwo = "yyyyMMdd";
+    public static final String dateFormatYMDTwo = "yyyyMMddHHmmss";
     public static final String dateFormatYMDTrain = "yyyy/MM/dd";
     public static final String dateFormatYMDtwo = "yyyy年MM月dd日";
     public static final String dateFormatYMDThree = "yyyy年MM月dd日 HH:mm";
@@ -355,6 +355,12 @@ public class DateUtil {
      */
     public static String getStringNow() {
         SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat(dateFormatYMDHMS);
+        String now = mSimpleDateFormat.format(new Date());
+        return now;
+    }
+
+    public static String getStringNow2() {
+        SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat(dateFormatYMDTwo);
         String now = mSimpleDateFormat.format(new Date());
         return now;
     }

@@ -11,6 +11,16 @@ package cn.braing.pay.lib.bean;
 public class ApiResp {
 private  String rspcode;
 private  String rspmsg;
+
+    public String getRespmsg() {
+        return respmsg;
+    }
+
+    public void setRespmsg(String respmsg) {
+        this.respmsg = respmsg;
+    }
+
+    private  String respmsg;
 private  String mweb_url;
     /**
      * amount : 1000
@@ -23,6 +33,15 @@ private  String mweb_url;
     private String body;
     private String paymenttype;
     private String ordernumber;
+    private String qrcodeurl;
+
+    public String getQrcodeurl() {
+        return qrcodeurl;
+    }
+
+    public void setQrcodeurl(String qrcodeurl) {
+        this.qrcodeurl = qrcodeurl;
+    }
 
     public String getRspcode() {
         return rspcode;

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:background="@color/ColorFFFF"
+                android:padding="15dp"
+                android:layout_height="wrap_content"
+    >
+
+
+
+        <TextView
+            android:id="@+id/reqData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+              android:textColor="#3c6df8"
+             tools:text="微信扫码支付"/>
+
+    <TextView
+        android:layout_below="@id/reqData"
+        android:id="@+id/respData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#3c6df8"
+        tools:text="微信扫码支付"/>
+
+
+    <ImageView
+        android:id="@+id/mine_setting_dialog_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="15dp"
+        android:src="@mipmap/btn_close_x"/>
+
+
+
+</RelativeLayout>

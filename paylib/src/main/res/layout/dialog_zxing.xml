@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/comments_white_fillet_8dp"
+        android:paddingBottom="20dp"
+        >
+
+        <TextView
+            android:id="@+id/mine_setting_dialog_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
+            android:textColor="#3c6df8"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="微信扫码支付"/>
+
+        <ImageView
+            android:id="@+id/zx_img"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_below="@id/mine_setting_dialog_version"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            />
+
+        <ImageView
+            android:id="@+id/mine_setting_dialog_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="15dp"
+            android:src="@mipmap/btn_close_x"/>
+
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/balloon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/update_iv"/>
+
+
+</RelativeLayout>

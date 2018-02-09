@@ -5,8 +5,7 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import org.greenrobot.eventbus.EventBus;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -20,7 +19,7 @@ import cn.braing.pay.lib.bean.SendMessageReq;
 import cn.braing.pay.lib.util.Data;
 import cn.braing.pay.lib.util.MoneyUtils;
 
-public class FastPayActivity extends BaseActivity implements View.OnClickListener {
+public class FastPayActivity extends BraBaseActivity implements View.OnClickListener {
 
 
     /**
@@ -116,6 +115,7 @@ public class FastPayActivity extends BaseActivity implements View.OnClickListene
                         @Override
                         protected void onError(ApiException ex) {
                             mMineUpdatePayPwdVercodeGet.setEnabled(true);
+                            Toast.makeText(FastPayActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
@@ -130,13 +130,13 @@ public class FastPayActivity extends BaseActivity implements View.OnClickListene
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {
-
+                            Toast.makeText(FastPayActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void onNext(ApiResp value) {
-
-
+                            Toast.makeText(FastPayActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
+                            finish();
                         }
                     });
 

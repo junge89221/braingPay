@@ -1,9 +1,16 @@
 package cn.braing.pay.lib.api;
 
+import android.app.Activity;
+import android.os.Build;
+import android.util.ArrayMap;
+
 import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import cn.braing.pay.lib.bean.AlipayReq;
@@ -17,9 +24,11 @@ import cn.braing.pay.lib.bean.ReqMessageHead;
 import cn.braing.pay.lib.bean.SendMessageReq;
 import cn.braing.pay.lib.bean.ServerLogEvent;
 import cn.braing.pay.lib.bean.WxH5PayReq;
+import cn.braing.pay.lib.util.AppManager;
 import cn.braing.pay.lib.util.Data;
 import cn.braing.pay.lib.util.DateUtil;
 import cn.braing.pay.lib.util.MD5Util;
+import cn.braing.pay.lib.view.LogDialog;
 import io.reactivex.Observable;
 
 /**
@@ -99,10 +108,14 @@ public class CommApi extends HttpApi<CommApiService> {
         reqMessageHead.setLsh(lsh);
         reqMessageHead.setOpFlag(method);
         reqMessageHead.setReqTime(DateUtil.getStringNow());
-        reqMessageHead.setClientIp(Data.getIp());
+        if("YCH5Pay".equals(method)) {
+            reqMessageHead.setClientIp(Data.getIp());
+        }
         reqMessageHead.setSign(MD5Util.encodeMD5(lsh + TEST_ID));
-        EventBus.getDefault().post(new ServerLogEvent(true, new Gson().toJson(new CommRequest(reqMessageHead, bean))));
-        return new CommRequest(reqMessageHead, bean);
+//        new LogDialog( AppManager.getAppManager().getTopActivity(),new Gson().toJson(new CommRequest(reqMessageHead, bean))).show();
+         return new CommRequest(reqMessageHead, bean);
 
     }
+
+
 }

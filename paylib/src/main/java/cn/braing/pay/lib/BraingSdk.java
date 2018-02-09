@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.uuzuche.lib_zxing.activity.ZXingLibrary;
+
 import cn.braing.pay.lib.page.AliPayH5Activity;
 import cn.braing.pay.lib.page.FastPayActivity;
 import cn.braing.pay.lib.page.LoginActivity;
@@ -37,6 +39,7 @@ public class BraingSdk {
         Utils.init(context);
         Data.init(context, amCode, secretKey, backUrl, phoneIp);
         isInit = true;
+        ZXingLibrary.initDisplayOpinion(context);
     }
 
 

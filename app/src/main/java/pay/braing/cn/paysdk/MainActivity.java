@@ -7,9 +7,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import cn.braing.pay.lib.BraingSdk;
-import cn.braing.pay.lib.page.BaseActivity;
+import cn.braing.pay.lib.page.BraBaseActivity;
+import cn.braing.pay.lib.util.DateUtil;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BraBaseActivity implements View.OnClickListener {
 
 
     /**
@@ -78,10 +79,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             default:
                 break;
             case R.id.button:
-                BraingSdk.Payment(this, "456dsadasdas44",500,"测试订单");
+                BraingSdk.Payment(this, DateUtil.getStringNow2(),500,"测试订单");
                  break;
             case R.id.button5:
-                BraingSdk.QueryOrder(this, "312312");
+                BraingSdk.QueryOrder(this, "20180208214210");
                 break;
             case R.id.button6:
                 BraingSdk.Login(this );

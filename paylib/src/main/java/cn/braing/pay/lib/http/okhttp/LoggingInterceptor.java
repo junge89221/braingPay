@@ -42,7 +42,7 @@ public class LoggingInterceptor implements Interceptor {
 
 
         Log.e(TAG, "| Response:" + new String(Base64.decode(content, Base64.NO_WRAP)));
-        EventBus.getDefault().post(new ServerLogEvent(false,new String(Base64.decode(content, Base64.NO_WRAP))));
+//        EventBus.getDefault().post(new ServerLogEvent(false,new String(Base64.decode(content, Base64.NO_WRAP))));
         Log.e(TAG,"----------End:"+duration+"毫秒----------");
         return response.newBuilder()
                 .body(okhttp3.ResponseBody.create(mediaType, new String(Base64.decode(content, Base64.NO_WRAP))))
