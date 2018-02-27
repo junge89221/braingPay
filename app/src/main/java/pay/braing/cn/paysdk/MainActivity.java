@@ -79,16 +79,16 @@ public class MainActivity extends BraBaseActivity implements View.OnClickListene
             default:
                 break;
             case R.id.button:
-                BraingSdk.Payment(this, DateUtil.getStringNow2(),500,"测试订单");
+                BraingSdk.Payment( DateUtil.getStringNow2(),500,"测试订单");
                  break;
             case R.id.button5:
-                BraingSdk.QueryOrder(this, "20180208214210");
+                BraingSdk.QueryOrder( "20180208214210");
                 break;
             case R.id.button6:
-                BraingSdk.Login(this );
+                BraingSdk.Login( );
                 break;
             case R.id.button7:
-                BraingSdk.Register(this );
+                BraingSdk.Register();
                 break;
             case R.id.button0:
 //                BraingSdk.initSDK(this,"231231","4423423","baidu.com","666");

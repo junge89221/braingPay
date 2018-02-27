@@ -43,42 +43,42 @@ public class BraingSdk {
     }
 
 
-    public static void Login(Context context) {
+    public static void Login() {
         if (!isInit) {
-            Toast.makeText(context, "请先输入商户编码初始化", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(Utils.getContext(), "请初始化", Toast.LENGTH_SHORT).show();
             return;
         }
-        context.startActivity(new Intent(context, LoginActivity.class) );
+        Utils.getContext().startActivity(new Intent(Utils.getContext(), LoginActivity.class).addFlags(FLAG_ACTIVITY_NEW_TASK)  );
     }
 
-    public static void QueryOrder(Context context, String orderNo) {
+    public static void QueryOrder( String orderNo) {
         if (!isInit) {
-            Toast.makeText(context, "请先输入商户编码初始化", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(Utils.getContext(), "请初始化", Toast.LENGTH_SHORT).show();
             return;
         }
-        Intent intent = new Intent(context, OrderDetailActivity.class) ;
+        Intent intent = new Intent(Utils.getContext(), OrderDetailActivity.class).addFlags(FLAG_ACTIVITY_NEW_TASK) ;
         intent.putExtra("orderNo", orderNo);
-        context.startActivity(intent);
+        Utils.getContext().startActivity(intent);
     }
 
-    public static void Register(Context context) {
+    public static void Register() {
         if (!isInit) {
-            Toast.makeText(context, "请先输入商户编码初始化", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(Utils.getContext(), "请初始化", Toast.LENGTH_SHORT).show();
             return;
         }
-        context.startActivity(new Intent(context, RegisterActivity.class) );
+        Utils.getContext().startActivity(new Intent(Utils.getContext(), RegisterActivity.class).addFlags(FLAG_ACTIVITY_NEW_TASK)  );
     }
 
 
-    public static void Payment(Context context,  String orderNo, int orderMoney, String orderMark) {
+    public static void Payment( String orderNo, int orderMoney, String orderMark) {
         if (!isInit) {
-            Toast.makeText(context, "请先输入商户编码初始化", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(Utils.getContext(), "请初始化", Toast.LENGTH_SHORT).show();
             return;
         }
-        Intent intent = new Intent(context, PaymentActivity.class) ;
+        Intent intent = new Intent(Utils.getContext(), PaymentActivity.class).addFlags(FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("orderNo", orderNo);
         intent.putExtra("orderMoney", orderMoney);
         intent.putExtra("orderMark", orderMark);
-        context.startActivity(intent);
+        Utils.getContext().startActivity(intent);
     }
 }
