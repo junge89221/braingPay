@@ -18,9 +18,9 @@ import cn.braing.pay.lib.api.CommApi;
 import cn.braing.pay.lib.api.exception.ApiException;
 import cn.braing.pay.lib.api.subscriber.SimpleSubscriber;
 import cn.braing.pay.lib.bean.ApiResp;
-import cn.braing.pay.lib.bean.LoginReq;
+import cn.braing.pay.lib.bean.RegisterReq;
 
-public class LoginActivity extends BraBaseActivity implements View.OnClickListener, TextWatcher {
+public class BraRegisterActivity extends BraBaseActivity implements View.OnClickListener, TextWatcher {
 
     /**
      * 登录账号
@@ -31,18 +31,29 @@ public class LoginActivity extends BraBaseActivity implements View.OnClickListen
      */
     private EditText mEdit2;
     /**
+     * 用户银行卡号
+     */
+    private EditText mEdit3;
+    /**
+     * 用户身份证号
+     */
+    private EditText mEdit4;
+    /**
+     * 用户姓名
+     */
+    private EditText mEdit5;
+    /**
      * 提交
      */
     private TextView mCommit;
-    private LinearLayout mToRegister;
     private ImageView mMineLoginClose;
-
+    private LinearLayout mToLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.braactivity_register);
         initView();
     }
 
@@ -54,41 +65,48 @@ public class LoginActivity extends BraBaseActivity implements View.OnClickListen
     private void initView() {
         mEdit1 = (EditText) findViewById(R.id.edit1);
         mEdit2 = (EditText) findViewById(R.id.edit2);
+        mEdit3 = (EditText) findViewById(R.id.edit3);
+        mEdit4 = (EditText) findViewById(R.id.edit4);
+        mEdit5 = (EditText) findViewById(R.id.edit5);
         mCommit = (TextView) findViewById(R.id.login_commit);
         mCommit.setOnClickListener(this);
 
-        mToRegister = (LinearLayout) findViewById(R.id.to_register);
-        mToRegister.setOnClickListener(this);
+        mMineLoginClose = (ImageView) findViewById(R.id.mine_login_close);
+        mToLogin = (LinearLayout) findViewById(R.id.to_login);
+        mToLogin.setOnClickListener(this);
+        mMineLoginClose.setOnClickListener(this);
+
+        mEdit5.addTextChangedListener(this);
         mEdit1.addTextChangedListener(this);
         mEdit2.addTextChangedListener(this);
-        mMineLoginClose = (ImageView) findViewById(R.id.mine_login_close);
-        mMineLoginClose.setOnClickListener(this);
+        mEdit3.addTextChangedListener(this);
+        mEdit4.addTextChangedListener(this);
     }
 
     @Override
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.login_commit) {
-            if (!verifyEditText(mEdit1, mEdit2)) return;
-            CommApi.instance().login(new LoginReq(getEditText(mEdit1), getEditText(mEdit2)))
+            if (!verifyEditText(mEdit1, mEdit2, mEdit3, mEdit4, mEdit5)) return;
+            CommApi.instance().register(new RegisterReq(getEditText(mEdit1), getEditText(mEdit2), getEditText(mEdit3), getEditText(mEdit4), getEditText(mEdit5)))
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {
-                            Toast.makeText(LoginActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BraRegisterActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void onNext(ApiResp value) {
-                            Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BraRegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(BraRegisterActivity.this, BraLoginActivity.class));
                             finish();
                         }
                     });
-
-        } else if (i == R.id.to_register) {
-            startActivity(new Intent(this, RegisterActivity.class));
+        }else if (i == R.id.to_login) {
+            startActivity(new Intent(this, BraLoginActivity.class));
             finish();
         }else if (i == R.id.mine_login_close) {
-           finish();
+            finish();
         }
     }
 
@@ -105,6 +123,6 @@ public class LoginActivity extends BraBaseActivity implements View.OnClickListen
 
     @Override
     public void afterTextChanged(Editable editable) {
-        mCommit.setEnabled(!TextUtils.isEmpty(getEditText(mEdit1)) && !TextUtils.isEmpty(getEditText(mEdit2)));
+        mCommit.setEnabled(!TextUtils.isEmpty(getEditText(mEdit1)) && !TextUtils.isEmpty(getEditText(mEdit2))&& !TextUtils.isEmpty(getEditText(mEdit3))&& !TextUtils.isEmpty(getEditText(mEdit4))&& !TextUtils.isEmpty(getEditText(mEdit5)));
     }
 }

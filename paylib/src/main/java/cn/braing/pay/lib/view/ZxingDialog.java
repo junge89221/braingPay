@@ -42,7 +42,7 @@ public class ZxingDialog extends BaseDialog<ZxingDialog> {
 
     @Override
     public View onCreateView() {
-        mView = View.inflate(mContext, R.layout.dialog_zxing, null);
+        mView = View.inflate(mContext, R.layout.bradialog_zxing, null);
         return mView;
     }
 

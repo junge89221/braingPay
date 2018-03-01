@@ -24,7 +24,7 @@ public class LoadingDialog extends Dialog {
     public LoadingDialog(Context context) {
         super(context, R.style.TransDialog);
         this.context = context;
-        view = View.inflate(context,R.layout.layout_pop_loading,null);
+        view = View.inflate(context,R.layout.bralayout_pop_loading,null);
         loadingTV = (TextView) view.findViewById(R.id.pop_loading_txt);
 
         setCanceledOnTouchOutside(false);

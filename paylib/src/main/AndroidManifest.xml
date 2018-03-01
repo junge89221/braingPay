@@ -49,52 +49,48 @@
         android:supportsRtl="true"
          >
         <activity
-            android:name=".page.TestActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
             android:theme="@style/BrAppTheme"
-            android:name=".page.WxH5Activity"
+            android:name=".page.BraWxH5Activity"
             android:label="微信支付"
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:theme="@style/BrAppTheme"
-            android:name=".page.AliPayH5Activity"
+            android:name=".page.BraAliPayH5Activity"
             android:label="支付宝支付"
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:theme="@style/BrAppTheme"
-            android:name=".page.SendMessagActivity"
+            android:name=".page.BraSendMessagActivity"
             android:label="发送验证码"
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:theme="@style/BrAppTheme"
-            android:name=".page.FastPayActivity"
+            android:name=".page.BraFastPayActivity"
             android:label="快捷支付"
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:theme="@style/BrAppTheme"
-            android:name=".page.OrderDetailActivity"
+            android:name=".page.BraOrderDetailActivity"
             android:label="订单详情"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".page.LoginActivity"
+            android:name=".page.BraLoginActivity"
             android:label="登录"
             android:screenOrientation="portrait"
             android:theme="@style/BrAppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".page.RegisterActivity"
+            android:name=".page.BraRegisterActivity"
             android:label="注册"
             android:screenOrientation="portrait"
             android:theme="@style/BrAppTheme.NoActionBar">
         </activity>
-        <activity android:name=".page.PaymentActivity"
+        <activity android:name=".page.BraPaymentActivity"
                   android:label="订单支付"
                   android:theme="@style/BrAppTheme"
                   android:screenOrientation="portrait"

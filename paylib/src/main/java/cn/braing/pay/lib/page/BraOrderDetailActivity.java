@@ -10,7 +10,7 @@ import cn.braing.pay.lib.api.subscriber.SimpleSubscriber;
 import cn.braing.pay.lib.bean.ApiResp;
 import cn.braing.pay.lib.bean.OrderDetailReq;
 
-public class OrderDetailActivity extends BraBaseActivity {
+public class BraOrderDetailActivity extends BraBaseActivity {
 
 
     /**
@@ -38,7 +38,7 @@ public class OrderDetailActivity extends BraBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_detail);
+        setContentView(R.layout.braactivity_order_detail);
         OrderNo = getIntent().getStringExtra("orderNo");
         initView();
         initData();

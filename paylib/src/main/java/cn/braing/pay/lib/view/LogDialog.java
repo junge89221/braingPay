@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.flyco.animation.BounceEnter.BounceEnter;
 import com.flyco.dialog.widget.base.BaseDialog;
-import com.uuzuche.lib_zxing.activity.CodeUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -16,8 +15,6 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import cn.braing.pay.lib.R;
 import cn.braing.pay.lib.bean.ServerLogEvent;
-import cn.braing.pay.lib.util.LogUtils;
-import cn.braing.pay.lib.util.SizeUtils;
 
 
 public class LogDialog extends BaseDialog<LogDialog> {
@@ -45,7 +42,7 @@ public class LogDialog extends BaseDialog<LogDialog> {
     @Override
     public View onCreateView() {
         EventBus.getDefault().register(this);
-        mView = View.inflate(mContext, R.layout.dialog_log, null);
+        mView = View.inflate(mContext, R.layout.bradialog_log, null);
         return mView;
     }
 

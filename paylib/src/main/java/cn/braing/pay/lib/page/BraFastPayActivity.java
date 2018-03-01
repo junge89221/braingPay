@@ -19,7 +19,7 @@ import cn.braing.pay.lib.bean.SendMessageReq;
 import cn.braing.pay.lib.util.Data;
 import cn.braing.pay.lib.util.MoneyUtils;
 
-public class FastPayActivity extends BraBaseActivity implements View.OnClickListener {
+public class BraFastPayActivity extends BraBaseActivity implements View.OnClickListener {
 
 
     /**
@@ -68,7 +68,7 @@ public class FastPayActivity extends BraBaseActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fast_pay);
+        setContentView(R.layout.braactivity_fast_pay);
         initView();
         OrderNo = getIntent().getStringExtra("orderNo");
         OrderMoney = getIntent().getIntExtra("orderMoney", 0);
@@ -115,7 +115,7 @@ public class FastPayActivity extends BraBaseActivity implements View.OnClickList
                         @Override
                         protected void onError(ApiException ex) {
                             mMineUpdatePayPwdVercodeGet.setEnabled(true);
-                            Toast.makeText(FastPayActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BraFastPayActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
@@ -130,12 +130,12 @@ public class FastPayActivity extends BraBaseActivity implements View.OnClickList
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {
-                            Toast.makeText(FastPayActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BraFastPayActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void onNext(ApiResp value) {
-                            Toast.makeText(FastPayActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BraFastPayActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     });

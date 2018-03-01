@@ -21,7 +21,7 @@ import cn.braing.pay.lib.util.MoneyUtils;
 import cn.braing.pay.lib.view.ZxingDialog;
 import cn.braing.pay.lib.view.webview.Html5Activity;
 
-public class PaymentActivity extends BraBaseActivity implements View.OnClickListener {
+public class BraPaymentActivity extends BraBaseActivity implements View.OnClickListener {
 
     /**
      * 订单编号
@@ -46,7 +46,7 @@ public class PaymentActivity extends BraBaseActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment);
+        setContentView(R.layout.braactivity_payment);
         initView();
         OrderNo = getIntent().getStringExtra("orderNo");
         OrderMoney = getIntent().getIntExtra("orderMoney", 0);
@@ -75,19 +75,19 @@ public class PaymentActivity extends BraBaseActivity implements View.OnClickList
         int i = v.getId();
         if (i == R.id.wxH5Pay) {
 
-//            startActivity(new Intent(PaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,"http://wxpay.wxutil.com/mch/pay/h5.v2.php").putExtra(Html5Activity.TITLE,"微信支付"));
+//            startActivity(new Intent(BraPaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,"http://wxpay.wxutil.com/mch/pay/h5.v2.php").putExtra(Html5Activity.TITLE,"微信支付"));
 
             CommApi.instance().WxH5Pay(new WxH5PayReq(OrderMoney, Data.getBackUrl(), OrderMark, OrderNo, "14"))
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {
-                            Toast.makeText(PaymentActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BraPaymentActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void onNext(ApiResp value) {
                             if(!TextUtils.isEmpty(value.getMweb_url()))
-                            startActivity(new Intent(PaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,value.getMweb_url()).putExtra(Html5Activity.TITLE,"微信支付"));
+                            startActivity(new Intent(BraPaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,value.getMweb_url()).putExtra(Html5Activity.TITLE,"微信支付"));
 
                         }
                     });
@@ -96,18 +96,18 @@ public class PaymentActivity extends BraBaseActivity implements View.OnClickList
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {
-                            Toast.makeText(PaymentActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BraPaymentActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void onNext(ApiResp value) {
                             if(!TextUtils.isEmpty(value.getQrcodeurl()))
-                                startActivity(new Intent(PaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,value.getQrcodeurl()).putExtra(Html5Activity.TITLE,"支付宝支付"));
+                                startActivity(new Intent(BraPaymentActivity.this, Html5Activity.class).putExtra(Html5Activity.URL,value.getQrcodeurl()).putExtra(Html5Activity.TITLE,"支付宝支付"));
 //                            new ZxingDialog(AppManager.getAppManager().getTopActivity(),value.getQrcodeurl(),"支付宝扫码支付").show();
                         }
                     });
         } else if (i == R.id.yinlianPay) {
-            Intent intent = new Intent(this, FastPayActivity.class);
+            Intent intent = new Intent(this, BraFastPayActivity.class);
             intent.putExtra("orderNo",OrderNo);
             intent.putExtra("orderMoney",OrderMoney);
             intent.putExtra("orderMark",OrderMark);
@@ -118,7 +118,7 @@ public class PaymentActivity extends BraBaseActivity implements View.OnClickList
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {
-                            Toast.makeText(PaymentActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BraPaymentActivity.this, ex.getMsg(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override

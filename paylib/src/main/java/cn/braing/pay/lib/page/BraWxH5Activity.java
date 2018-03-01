@@ -11,16 +11,16 @@ import cn.braing.pay.lib.api.CommApi;
 import cn.braing.pay.lib.api.exception.ApiException;
 import cn.braing.pay.lib.api.subscriber.SimpleSubscriber;
 import cn.braing.pay.lib.bean.ApiResp;
-import cn.braing.pay.lib.bean.SendMessageReq;
+import cn.braing.pay.lib.bean.WxH5PayReq;
 
-public class SendMessagActivity extends BraBaseActivity implements View.OnClickListener {
+public class BraWxH5Activity extends BraBaseActivity implements View.OnClickListener {
 
     /**
-     * 订单号
+     * 金额
      */
     private EditText mEdit1;
     /**
-     * 金额（分）
+     * 回调
      */
     private EditText mEdit2;
     /**
@@ -28,37 +28,21 @@ public class SendMessagActivity extends BraBaseActivity implements View.OnClickL
      */
     private EditText mEdit3;
     /**
-     * 持卡人姓名
+     * 订单号
      */
     private EditText mEdit4;
-    /**
-     * 银行卡号
-     */
-    private EditText mEdit5;
-    /**
-     * 身份证号
-     */
-    private EditText mEdit6;
+    private TextView mResult;
     /**
      * 提交
      */
     private Button mCommit;
-    private TextView mResult;
-    /**
-     * 手机号码
-     */
-    private EditText mEdit7;
-    /**
-     * 回调地址
-     */
-    private EditText mEdit8;
     private TextView mReqData;
     private TextView mRespData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         setContentView(R.layout.activity_send_messag);
+         setContentView(R.layout.braactivity_wx_h5);
         initView();
     }
     @Override
@@ -70,36 +54,32 @@ public class SendMessagActivity extends BraBaseActivity implements View.OnClickL
         mEdit2 = (EditText) findViewById(R.id.edit2);
         mEdit3 = (EditText) findViewById(R.id.edit3);
         mEdit4 = (EditText) findViewById(R.id.edit4);
-        mEdit5 = (EditText) findViewById(R.id.edit5);
-        mEdit6 = (EditText) findViewById(R.id.edit6);
+        mResult = (TextView) findViewById(R.id.result);
         mCommit = (Button) findViewById(R.id.commit);
         mCommit.setOnClickListener(this);
-        mResult = (TextView) findViewById(R.id.result);
-        mEdit7 = (EditText) findViewById(R.id.edit7);
-        mEdit8 = (EditText) findViewById(R.id.edit8);
         mReqData = (TextView) findViewById(R.id.reqData);
         mRespData = (TextView) findViewById(R.id.respData);
     }
+
 
     @Override
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.commit) {
-            if (!verifyEditText(mEdit1, mEdit2, mEdit3, mEdit4, mEdit5, mEdit6, mEdit7, mEdit8))
-                return;
-            CommApi.instance().SendMessage(new SendMessageReq(getEditText(mEdit1), Integer.parseInt(getEditText(mEdit2)), getEditText(mEdit3), getEditText(mEdit4), getEditText(mEdit5), "01", getEditText(mEdit6), getEditText(mEdit7), getEditText(mEdit8)))
+            if (!verifyEditText(mEdit1, mEdit2, mEdit3, mEdit4)) return;
+            CommApi.instance().WxH5Pay(new WxH5PayReq(Integer.parseInt(getEditText(mEdit1)), getEditText(mEdit2), getEditText(mEdit3), getEditText(mEdit4), "14"))
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {
-                            mResult.setText(ex.getErrorCode() + ex.getMsg());                        }
+
+                            mResult.setText(ex.getMsg() + ex.getErrorCode());
+                        }
 
                         @Override
                         public void onNext(ApiResp value) {
                             mResult.setText(value.toString());
                         }
                     });
-
-
         }
     }
 

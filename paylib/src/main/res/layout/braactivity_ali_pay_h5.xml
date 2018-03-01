@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="cn.braing.pay.lib.page.WxH5Activity">
+    tools:context="cn.braing.pay.lib.page.BraWxH5Activity">
     <EditText
         android:id="@+id/edit1"
         android:layout_marginTop="5dp"

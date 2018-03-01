@@ -18,7 +18,7 @@ public class Html5Activity extends BraBaseActivity implements Html5WebView.OnHtm
       @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_webview);
+        setContentView(R.layout.braactivity_webview);
         mWebView = (Html5WebView) findViewById(R.id.html5_web_view);
         mWebView.setOnHtml5Listener(this);
          mWebView.setOnHtml5Progress(this);

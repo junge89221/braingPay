@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/AppBg"
     android:orientation="vertical"
-    tools:context="cn.braing.pay.lib.page.PaymentActivity">
+    tools:context="cn.braing.pay.lib.page.BraPaymentActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
