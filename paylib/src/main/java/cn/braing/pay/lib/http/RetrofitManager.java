@@ -24,7 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class RetrofitManager {
 
-    private static final String BASE_URL = "http://47.97.6.226";
+    private static final String BASE_URL = "http://114.55.249.65";
     public static Retrofit retrofit = null;
     public static Retrofit httpsRetrofit = null;
 

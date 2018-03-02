@@ -1,16 +1,5 @@
 package cn.braing.pay.lib.api;
 
-import android.app.Activity;
-import android.os.Build;
-import android.util.ArrayMap;
-
-import com.google.gson.Gson;
-
-import org.greenrobot.eventbus.EventBus;
-
-import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 import cn.braing.pay.lib.bean.AlipayReq;
@@ -22,13 +11,10 @@ import cn.braing.pay.lib.bean.OrderDetailReq;
 import cn.braing.pay.lib.bean.RegisterReq;
 import cn.braing.pay.lib.bean.ReqMessageHead;
 import cn.braing.pay.lib.bean.SendMessageReq;
-import cn.braing.pay.lib.bean.ServerLogEvent;
 import cn.braing.pay.lib.bean.WxH5PayReq;
-import cn.braing.pay.lib.util.AppManager;
 import cn.braing.pay.lib.util.Data;
 import cn.braing.pay.lib.util.DateUtil;
 import cn.braing.pay.lib.util.MD5Util;
-import cn.braing.pay.lib.view.LogDialog;
 import io.reactivex.Observable;
 
 /**
