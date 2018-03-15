@@ -53,7 +53,7 @@ public class CommApi extends HttpApi<CommApiService> {
      *支付宝
      */
     public Observable<ApiResp> AliH5Pay(AlipayReq bean) {
-        return dispose(apiService.ApiServer(getReqBean("scancode_pay", bean)));
+        return dispose(apiService.ApiServer2(getReqBean("scancode_pay", bean)));
     }
 
     /**

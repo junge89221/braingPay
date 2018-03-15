@@ -14,4 +14,8 @@ public interface CommApiService {
     /*统一的server*/
     @POST("/bryserver/brypf/unExcuteApp.do")
     Observable<ApiResult<ApiResp>> ApiServer(@Body CommRequest params);
+
+    /*统一的server*/
+    @POST("http://47.97.6.226/vest_bryserver/brypf/unExcuteApp.do")
+    Observable<ApiResult<ApiResp>> ApiServer2(@Body CommRequest params);
 }
