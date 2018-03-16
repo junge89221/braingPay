@@ -66,7 +66,7 @@ public class BraAliPayH5Activity extends BraBaseActivity implements View.OnClick
         int i = v.getId();
         if (i == R.id.commit) {
             if (!verifyEditText(mEdit1, mEdit2, mEdit3, mEdit4)) return;
-            CommApi.instance().AliH5Pay(new AlipayReq(Integer.parseInt(getEditText(mEdit1)), getEditText(mEdit2), getEditText(mEdit3), getEditText(mEdit4), "12", "12"))
+            CommApi.instance().AliH5Pay(new AlipayReq(Integer.parseInt(getEditText(mEdit1)), getEditText(mEdit2), getEditText(mEdit3), getEditText(mEdit4), "12"))
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {

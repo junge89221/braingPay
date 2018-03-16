@@ -92,7 +92,7 @@ public class BraPaymentActivity extends BraBaseActivity implements View.OnClickL
                         }
                     });
         } else if (i == R.id.AliH5Pay) {
-            CommApi.instance().AliH5Pay(new AlipayReq(OrderMoney, Data.getBackUrl(), OrderMark, OrderNo, "12", "12"))
+            CommApi.instance().AliH5Pay(new AlipayReq(OrderMoney, Data.getBackUrl(), OrderMark, OrderNo, "12"))
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {
@@ -114,7 +114,7 @@ public class BraPaymentActivity extends BraBaseActivity implements View.OnClickL
             startActivity(intent);
         } else if (i == R.id.wxScanPay) {
 //            new ZxingDialog(AppManager.getAppManager().getTopActivity(),"www.baidu.com").show();
-            CommApi.instance().AliH5Pay(new AlipayReq(OrderMoney, Data.getBackUrl(), OrderMark, OrderNo, "13", "13"))
+            CommApi.instance().AliH5Pay(new AlipayReq(OrderMoney, Data.getBackUrl(), OrderMark, OrderNo, "13"))
                     .subscribe(new SimpleSubscriber<ApiResp>(this, true) {
                         @Override
                         protected void onError(ApiException ex) {

@@ -10,14 +10,13 @@ package cn.braing.pay.lib.bean;
 
 public class AlipayReq {
 
-    public AlipayReq(int amount, String backurl, String body, String ordernumber, String paymenttype, String subpaymenttype) {
+    public AlipayReq(int amount, String backurl, String body, String ordernumber, String business) {
         this.amount = amount;
         this.backurl = backurl;
         this.body = body;
         this.ordernumber = ordernumber;
-        this.paymenttype = paymenttype;
-        this.subpaymenttype = subpaymenttype;
-    }
+        this.business = business;
+     }
 
     /**
      * amount : 1
@@ -32,8 +31,7 @@ public class AlipayReq {
     private String backurl;
     private String body;
     private String ordernumber;
-    private String paymenttype;
-    private String subpaymenttype;
+     private String business;
 
     public int getAmount() {
         return amount;
@@ -67,19 +65,11 @@ public class AlipayReq {
         this.ordernumber = ordernumber;
     }
 
-    public String getPaymenttype() {
-        return paymenttype;
+    public String getBusiness() {
+        return business;
     }
 
-    public void setPaymenttype(String paymenttype) {
-        this.paymenttype = paymenttype;
-    }
-
-    public String getSubpaymenttype() {
-        return subpaymenttype;
-    }
-
-    public void setSubpaymenttype(String subpaymenttype) {
-        this.subpaymenttype = subpaymenttype;
+    public void setBusiness(String business) {
+        this.business = business;
     }
 }
